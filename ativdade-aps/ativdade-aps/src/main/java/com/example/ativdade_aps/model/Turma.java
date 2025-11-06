@@ -1,64 +1,54 @@
 package com.example.ativdade_aps.model;
 
 import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-/**
- * Entidade Turma representa uma turma universitária
- * Relacionamentos: ManyToOne com Curso e Professor, ManyToMany com Estudante
- */
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Turma {
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    
-    @NotBlank(message = "Código da turma é obrigatório")
-    @Size(min = 3, max = 10, message = "Código deve ter entre 3 e 10 caracteres")
-    @Column(unique = true, nullable = false)
+    private Long id;
+
+    @Column(unique = true)
     private String codigoTurma;
-    
-    @NotBlank(message = "Horário é obrigatório")
-    @Size(min = 5, max = 20, message = "Horário deve ter entre 5 e 20 caracteres")
-    @Column(nullable = false)
+
     private String horario;
 
-    @ManyToOne
-    @JoinColumn(name = "curso_id")
     @JsonIgnoreProperties("turmas")
-    private Curso curso;
-
-    @ManyToOne
-    @JoinColumn(name = "professor_id")
-    @JsonIgnoreProperties("turmas")
-    private Professor professor;
-
     @ManyToMany
     @JoinTable(
         name = "turma_estudante",
         joinColumns = @JoinColumn(name = "turma_id"),
         inverseJoinColumns = @JoinColumn(name = "estudante_id")
     )
-    @JsonIgnoreProperties("turmas")
     private List<Estudante> estudantes;
+
+    @JsonIgnoreProperties("turmas")
+    @ManyToOne
+    @JoinColumn(name = "curso_id")
+    private Curso curso;
+
+    @JsonIgnoreProperties("turmas")
+    @ManyToOne
+    @JoinColumn(name = "professor_id")
+    private Professor responsavel;
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public String getCodigoTurma() { return codigoTurma; }
+    public void setCodigoTurma(String codigoTurma) { this.codigoTurma = codigoTurma; }
+
+    public String getHorario() { return horario; }
+    public void setHorario(String horario) { this.horario = horario; }
+
+    public List<Estudante> getEstudantes() { return estudantes; }
+    public void setEstudantes(List<Estudante> estudantes) { this.estudantes = estudantes; }
+
+    public Curso getCurso() { return curso; }
+    public void setCurso(Curso curso) { this.curso = curso; }
+
+    public Professor getResponsavel() { return responsavel; }
+    public void setResponsavel(Professor responsavel) { this.responsavel = responsavel; }
 }
