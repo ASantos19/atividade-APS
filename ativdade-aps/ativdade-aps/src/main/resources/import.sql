@@ -13,8 +13,8 @@ INSERT INTO professor (id, nome, especialidade) VALUES (2, 'Mariana Silva', 'Des
 -- ========================
 -- TURMAS
 -- ========================
-INSERT INTO turma (id, codigo_turma, horario, curso_id, professor_id) VALUES (1, 'TURMA001', '08:00-10:00', 1, 1);
-INSERT INTO turma (id, codigo_turma, horario, curso_id, professor_id) VALUES (2, 'TURMA002', '10:00-12:00', 2, 2);
+INSERT INTO turma (id, codigoTurma, horario, curso_id, professor_id) VALUES (1, 'TURMA001', '08:00-10:00', 1, 1);
+INSERT INTO turma (id, codigoTurma, horario, curso_id, professor_id) VALUES (2, 'TURMA002', '10:00-12:00', 2, 2);
 
 -- ========================
 -- ESTUDANTES

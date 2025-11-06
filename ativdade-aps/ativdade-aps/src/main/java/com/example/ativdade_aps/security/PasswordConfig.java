@@ -1,3 +1,4 @@
+
 package com.example.ativdade_aps.security;
 
 import org.springframework.context.annotation.Bean;
