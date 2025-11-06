@@ -34,4 +34,8 @@ public class TurmaService {
     public void deletar(Long id) {
         turmaRepository.deleteById(id);
     }
+
+    public Object toDTO(Turma turma) {
+        throw new UnsupportedOperationException("Unimplemented method 'toDTO'");
+    }
 }

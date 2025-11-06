@@ -1,8 +1,8 @@
 -- ========================
 -- CURSOS
 -- ========================
-INSERT INTO curso (id, nome, codigo_curso, especialidade) VALUES (1, 'Ciência da Computação', 'CC001', 'Tecnologia da Informação');
-INSERT INTO curso (id, nome, codigo_curso, especialidade) VALUES (2, 'Engenharia de Software', 'ES002', 'Desenvolvimento de Software');
+INSERT INTO curso (id, nome, codigo_curso) VALUES (1, 'Ciência da Computação', 'CC001');
+INSERT INTO curso (id, nome, codigo_curso) VALUES (2, 'Engenharia de Software', 'ES002');
 
 -- ========================
 -- PROFESSORES
@@ -13,8 +13,8 @@ INSERT INTO professor (id, nome, especialidade) VALUES (2, 'Mariana Silva', 'Des
 -- ========================
 -- TURMAS
 -- ========================
-INSERT INTO turma (id, codigoTurma, horario, curso_id, professor_id) VALUES (1, 'TURMA001', '08:00-10:00', 1, 1);
-INSERT INTO turma (id, codigoTurma, horario, curso_id, professor_id) VALUES (2, 'TURMA002', '10:00-12:00', 2, 2);
+INSERT INTO turma (id, codigo_turma, horario, curso_id, professor_id) VALUES (1, 'TURMA001', '08:00-10:00', 1, 1);
+INSERT INTO turma (id, codigo_turma, horario, curso_id, professor_id) VALUES (2, 'TURMA002', '10:00-12:00', 2, 2);
 
 -- ========================
 -- ESTUDANTES
@@ -31,16 +31,16 @@ INSERT INTO estudante (id, nome, matricula) VALUES (9, 'Isabela Castro', 2025009
 INSERT INTO estudante (id, nome, matricula) VALUES (10, 'João Vitor', 2025010);
 
 -- ========================
--- MATRÍCULAS DE ESTUDANTES EM TURMAS (Tabela de Junção)
+-- MATRÍCULAS DE ESTUDANTES EM TURMAS
 -- ========================
--- 5 estudantes na Turma 1
+-- Turma 1
 INSERT INTO turma_estudante (turma_id, estudante_id) VALUES (1, 1);
 INSERT INTO turma_estudante (turma_id, estudante_id) VALUES (1, 2);
 INSERT INTO turma_estudante (turma_id, estudante_id) VALUES (1, 3);
 INSERT INTO turma_estudante (turma_id, estudante_id) VALUES (1, 4);
 INSERT INTO turma_estudante (turma_id, estudante_id) VALUES (1, 5);
 
--- 5 estudantes na Turma 2
+-- Turma 2
 INSERT INTO turma_estudante (turma_id, estudante_id) VALUES (2, 6);
 INSERT INTO turma_estudante (turma_id, estudante_id) VALUES (2, 7);
 INSERT INTO turma_estudante (turma_id, estudante_id) VALUES (2, 8);

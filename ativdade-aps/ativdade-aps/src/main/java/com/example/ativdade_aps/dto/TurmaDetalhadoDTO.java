@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class TurmaDetalhadoDTO {
     private Long id;
-    private String codigoTurma;
+    private String codigo_turma;
     private String horario;
     private String curso; 
     private String professor; 
